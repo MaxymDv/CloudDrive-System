@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Drive</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <div id="auth-box">
+        <h2 id="auth-title">Login</h2>
+        <input id="u" placeholder="Username">
+        <input id="p" type="password" placeholder="Password">
+        <button onclick="login()" id="btn-login">Login</button>
+        <button onclick="register()" id="btn-reg" class="secondary">Register</button>
+        <p style="font-size: 12px; cursor: pointer; color: #888;" onclick="toggleAuthMode()">Switch Mode</p>
+    </div>
+
+    <div id="app-box" style="display:none;">
+        <div class="toolbar">
+            <button onclick="loadFiles()">🔄 Refresh</button>
+            <button onclick="document.getElementById('f-upload').click()">⬆ Upload</button>
+            <input type="file" id="f-upload" style="display:none" onchange="upload(this.files[0])">
+
+            <button id="btn-dl" class="action-btn" onclick="downloadFile()">⬇ Download</button>
+            <button id="btn-del" class="action-btn" onclick="deleteFile()" style="background:#8B0000">🗑 Delete</button>
+            <button id="btn-share" class="action-btn" onclick="shareFile()">🤝 Share</button>
+
+            <div class="spacer"></div>
+
+            <span>Sort:</span>
+            <select id="sort-select" onchange="applyFilters()">
+                <option value="default">Default</option>
+                <option value="asc">Uploader A-Z</option>
+                <option value="desc">Uploader Z-A</option>
+            </select>
+
+            <label><input type="checkbox" id="filter-check" onchange="applyFilters()"> Only .py/.jpg</label>
+            <label><input type="checkbox" id="cols-check" onchange="toggleCols()"> Hide Cols</label>
+
+            <div class="spacer"></div>
+            <span id="username-display" style="margin-right: 10px; font-weight: bold;"></span>
+            <button onclick="logout()" class="secondary">🚪 Logout</button>
+        </div>
+
+        <div class="workspace">
+            <div class="table-container" id="drop-zone">
+                <table id="file-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Ext</th>
+                            <th class="opt-col">Created</th>
+                            <th class="opt-col">Edited</th> <th class="opt-col">Uploader</th>
+                            <th class="opt-col">Editor</th>
+                        </tr>
+                    </thead>
+                    <tbody id="file-list"></tbody>
+                </table>
+            </div>
+
+            <div class="preview-container">
+                <div style="display:flex; justify-content:space-between; width:100%; align-items:center; margin-bottom: 10px;">
+                    <h3 style="margin:0;">Preview</h3>
+                    <button id="btn-save" onclick="saveContent()" style="display:none; width:auto; background:#2E8B57; padding: 5px 15px;">💾 Save Changes</button>
+                </div>
+                <div id="preview-content">Select a file...</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

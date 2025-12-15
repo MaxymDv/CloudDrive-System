@@ -1,0 +1,12 @@
+
+pyqt6-sip
+sqlalchemy
+requests
+pydantic
+fastapi
+python-jose
+passlib
+jinja2
+python-multipart
+uvicorn
+bcrypt

@@ -1,0 +1,131 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #2b2b2b; /* Темний фон як у IDE */
+    color: #e0e0e0;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Auth Screen */
+#auth-box {
+    background: #3c3f41;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    text-align: center;
+    width: 300px;
+}
+input, select, button {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    background: #45494a;
+    border: 1px solid #5e6060;
+    color: white;
+    border-radius: 4px;
+}
+button {
+    background: #365880;
+    cursor: pointer;
+    font-weight: bold;
+}
+button:hover { background: #4a76a8; }
+button.secondary { background: #555; }
+
+/* Main App Layout */
+#app-box {
+    width: 95%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    background: #3c3f41;
+    border: 1px solid #555;
+}
+
+/* Toolbar */
+.toolbar {
+    padding: 10px;
+    background: #333;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border-bottom: 1px solid #555;
+}
+.toolbar button, .toolbar select { width: auto; margin: 0; }
+.spacer { flex-grow: 1; }
+
+/* Workspace (Table + Preview) */
+.workspace {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Table Area */
+.table-container {
+    flex: 3;
+    overflow: auto;
+    border-right: 1px solid #555;
+    position: relative;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th {
+    background: #2b2b2b;
+    padding: 10px;
+    text-align: left;
+    position: sticky;
+    top: 0;
+    border-bottom: 2px solid #555;
+}
+td {
+    padding: 8px;
+    border-bottom: 1px solid #444;
+    cursor: pointer;
+}
+tr:hover { background: #2d2d2d; }
+tr.selected { background: #365880; }
+tr.shared { color: #ffd700; } /* Жовтий для розшарених */
+
+/* Preview Area */
+.preview-container {
+    flex: 2;
+    padding: 20px;
+    background: #2b2b2b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#preview-content img { max-width: 100%; border: 1px solid #555; }
+#preview-content pre {
+    background: #1e1e1e;
+    padding: 10px;
+    width: 100%;
+    overflow: auto;
+    color: #a9b7c6;
+}
+
+/* Drag n Drop Overlay */
+.drop-active {
+    border: 2px dashed #4a76a8;
+    background: rgba(74, 118, 168, 0.1);
+}
+
+#preview-content pre {
+    background: #1e1e1e;
+    padding: 10px;
+    width: 100%;
+    max-height: 500px; /* Обмеження висоти */
+    overflow-y: auto;  /* Вертикальна прокрутка */
+    color: #a9b7c6;
+}
+
+/* Кнопки дій (сховані, поки не вибрано файл) */
+.action-btn {
+    display: none; /* Показуємо через JS */
+}
