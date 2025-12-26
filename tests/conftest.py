@@ -6,5 +6,5 @@ from PyQt6.QtWidgets import QApplication
 def qapp():
     app = QApplication.instance()
     if app is None:
-        app = QApplication(sys.argv)
+        app = QApplication([])
     yield app
