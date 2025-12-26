@@ -102,7 +102,6 @@ class MainWindow(QMainWindow):
         self.btn_download.setEnabled(False)
         self.btn_delete = QPushButton("🗑 Delete");
         self.btn_delete.clicked.connect(self.delete_selected)
-        self.btn_delete.setStyleSheet("background-color: #552222; color: white;")
         self.btn_delete.setEnabled(False)
 
         self.combo_sort = QComboBox()
